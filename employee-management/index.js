@@ -4,10 +4,10 @@ const { Pool } = require("pg");
 
 // Connect to your PostgreSQL database
 const pool = new Pool({
-  user: "your_username", // <-- replace with PostgreSQL username
+  user: "postgres", // <-- replace with PostgreSQL username
   host: "localhost",
-  database: "your_database", //replace with PostgreSQL database name
-  password: "your_password", //replace with PostgreSQL password
+  database: "employee_management", //replace with PostgreSQL database name
+  password: "", //replace with PostgreSQL password
   port: 5432, // default PostgreSQL port
 });
 
@@ -93,7 +93,7 @@ const addDepartment = async () => {
   ]);
 
   await pool.query("INSERT INTO department (name) VALUES ($1)", [name]);
-  console.log(chalk.green(`Added department: ${name}`));
+  console.log((`Added department: ${name}`));
 };
 
 // Add role
@@ -125,7 +125,7 @@ const addRole = async () => {
   ]);
 
   await pool.query("INSERT INTO role (title, salary, department_id) VALUES ($1, $2, $3)", [title, salary, department_id]);
-  console.log(chalk.green(`Added role: ${title}`));
+  console.log((`Added role: ${title}`));
 };
 
 // Add employee
@@ -172,7 +172,7 @@ const addEmployee = async () => {
     "INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)",
     [first_name, last_name, role_id, manager_id]
   );
-  console.log(chalk.green(`Added employee: ${first_name} ${last_name}`));
+  console.log((`Added employee: ${first_name} ${last_name}`));
 };
 
 // Update employee role
@@ -205,7 +205,7 @@ const updateEmployeeRole = async () => {
   ]);
 
   await pool.query("UPDATE employee SET role_id = $1 WHERE id = $2", [new_role_id, employee_id]);
-  console.log(chalk.green(`Updated employee's role successfully!`));
+  console.log((`Updated employee's role successfully!`));
 };
 
 // Start the app
