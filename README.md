@@ -1,3 +1,9 @@
+# Employee-Tracker
+
+# Link to Walkthrough Video
+
+https://youtu.be/l_eqakX6D2s
+
 # 10 SQL: Employee Tracker
 
 ## Your Task
